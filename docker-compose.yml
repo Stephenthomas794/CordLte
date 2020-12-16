@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
 
-    App:
+    app:
         build: ./App
         container_name: App
         restart: always
