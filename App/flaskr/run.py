@@ -61,7 +61,6 @@ def project2():
 @socketio.on('connection')
 def connection(data):
     print(data)
-
 from projects.project1 import project1_blueprint_factory
 this_send = send
 project1 = project1_blueprint_factory(this_send)
