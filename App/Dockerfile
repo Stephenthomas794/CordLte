@@ -11,4 +11,4 @@ COPY . /App
 
 RUN pip3 --no-cache-dir install -r requirements.txt
 
-CMD ["uwsgi", "flaskr/run.py"]
+CMD ["uwsgi", "app.ini"]
