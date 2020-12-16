@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'extentions/head.html' %}
+
+<style>                                                                                                     
+ div {text-align: center;}
+     </style>
+
+</head>
+  <body>
+
+{% include 'extentions/nav.html' %}
+
+<div class="container">
+<h1>Project 1: This Project Determines the Number of Foreclosed houses in the USA based on Zip Code</h1>
+</div>
+
+<div class="container">
+<form action = "/project1run" method="POST">
+<button type="button" id="test" onclick="document.getElementById('test').disabled = true;document.getElementById('test').style.opacity='0.5';" class="btn btn-primary">Run</button>
+</form>
+</div>
+
+<div class="container">
+<p id="stalling"></p>
+</div>
+
+<div class="container">
+<h2>Top Foreclosed Homes Zip Codes</h2>
+<p id="date">Last Updated: {{ update }} </p>
+<table style="width:100%" id ="topMessages">
+  <tr>
+    <th>ZipCode</th>
+    <th>Houses Foreclosed</th> 
+  </tr>
+  {% for result in a  %}
+  <tr>
+  <th>{{ result.zipCodeDB }}</th>
+  <th>{{ result.housesDB }}</th>
+  </tr>
+{% endfor %}
+</table>
+
+</div>
+
+<div class="container">
+<h3>Results:</h3>
+<table style="width:100%" id ="messages">
+  <tr>
+    <th>ZipCode</th>
+    <th>Houses Foreclosed</th> 
+  </tr>
+</table>
+<ul id="messages"></ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js" integrity="sha512-AcZyhRP/tbAEsXCCGlziPun5iFvcSUpEz2jKkx0blkYKbxU81F+iq8FURwPn1sYFeksJ+sDDrI5XujsqSobWdQ==" crossorigin="anonymous"></script>
+<script>
+$('#test').click(function(){
+
+document.getElementById("stalling").innerHTML = "Your results are being populated below";
+
+console.log(window.location.hostname);
+var socket = io();
+
+socket.on('connect', function() {
+    socket.emit('connection', {data: 'Connected'});
+    });
+
+socket.on('message', function(msg) {
+    $("#messages").append('<tr><th>'+msg.data[0]+'</th><th>'+msg.data[1]+'</th></tr');
+    console.log(msg);
+});
+
+$.ajax({
+    type:'GET',
+    url: '/project1run',
+    success:function(){
+        console.log("hi");
+}});
+});
+
+</script>
+
+{% include 'extentions/footerjs.html' %}  
+  </body>
+</html>
