@@ -2,7 +2,7 @@ FROM python:latest
 
 MAINTAINER stephenthomas794@gmail.com
 
-RUN yum -y install python3 \
+RUN pip -y install python3 \
     && pip3 install --upgrade pip
 
 WORKDIR /App
