@@ -68,4 +68,4 @@ project1 = project1_blueprint_factory(this_send)
 app.register_blueprint(project1, url_prefix="")
 if __name__ == "__main__":
     db.create_all()
-    socketio.run(app, host='127.0.0.1')
+    socketio.run(app)
