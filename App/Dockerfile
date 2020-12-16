@@ -2,8 +2,7 @@ FROM python:latest
 
 MAINTAINER stephenthomas794@gmail.com
 
-RUN pip install python3 \
-    && pip3 install --upgrade pip
+RUN pip3 install --upgrade pip
 
 WORKDIR /App
 
