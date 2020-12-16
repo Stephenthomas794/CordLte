@@ -2,9 +2,9 @@ FROM python:latest
 
 MAINTAINER stephenthomas794@gmail.com
 
-RUN pip3 install --upgrade pip
-
 WORKDIR /App
+
+RUN pip3 install --upgrade pip  
 
 COPY ./flaskr/run.py /flaskr/run.py
 COPY . /App

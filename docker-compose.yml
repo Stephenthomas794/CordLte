@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
 
-    flask:
+    App:
         build: ./App
         container_name: App
         restart: always
