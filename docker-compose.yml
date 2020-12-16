@@ -4,7 +4,7 @@ services:
 
     app:
         build: ./App
-        container_name: App
+        container_name: app
         restart: always
         environment: 
             - APP_NAME=CordLte
@@ -12,7 +12,7 @@ services:
             - 8080
     nginx:
         build: ./Nginx
-        container_name: Nginx
+        container_name: nginx
         restart: always
         ports:
             - "80:80"
