@@ -1,19 +1,15 @@
-FROM amazonlinux:latest
+FROM python:latest
 
 MAINTAINER stephenthomas794@gmail.com
 
 RUN yum -y install python3 \
     && pip3 install --upgrade pip
 
-WORKDIR /CordLte
+WORKDIR /App
 
 COPY ./flaskr/run.py /flaskr/run.py
-COPY . /CordLte
+COPY . /App
 
 RUN pip3 --no-cache-dir install -r requirements.txt
 
-WORKDIR /CordLte/flaskr
-EXPOSE 5000
-
-ENTRYPOINT ["python3"]
-CMD ["run.py"]
+CMD ["uwsgi", "run.py"]
