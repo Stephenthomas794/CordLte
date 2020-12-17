@@ -79,7 +79,7 @@ def project1_blueprint_factory(send):
         # Counter variable is used to keep track of what zipCode we are on in the zipCode List
         # CountOfForeclosures keeps track of how many foreclosures at that specific zipCOde
         f = open("/App/mainApp/static/project1txt/Totals0.txt","w+")
-        ftime = open("static/project1txt/date.txt","w+")
+        ftime = open("App/mainApp/static/project1txt/date.txt","w+")
         zipCodes = list()
         zipCodes = cleanAndReturnZip()
         word = "listingId:"
