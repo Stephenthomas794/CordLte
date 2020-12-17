@@ -62,8 +62,8 @@ def project2():
 def connection(data):
     print(data)
 import sys
-sys.path.insert(1, '/Users/stephenthomas/Desktop/CordLte/App/flaskr/projects')
-from project1 import project1_blueprint_factory
+sys.path.insert(1, '/home/ec2-user/CordLte/App/flaskr/projects')
+from projects.project1 import *
 this_send = send
 project1 = project1_blueprint_factory(this_send)
 app.register_blueprint(project1, url_prefix="")
