@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import select, desc, text
 from datetime import datetime
 from mainApp import app
+import os
 
 app.config['SECRET_KEY'] = 'mysecret'
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///realestate.db'
@@ -27,7 +28,8 @@ def homepage():
 
 @app.route("/project1", methods=['POST', 'GET'])
 def project1():
-    lastUpdate = open("static/project1txt/date.txt","r")
+#    lastUpdate = open("static/project1txt/date.txt","r")
+    lastUpdate = open(os.path.join(os.path.dirname(__file__), 'date.txt'))
     sqlMax = text('SELECT * FROM realestate ORDER BY housesDB desc LIMIT 0,10')
     results = db.engine.execute(sqlMax)
     d, a = {}, []
@@ -61,12 +63,12 @@ def project2():
 @socketio.on('connection')
 def connection(data):
     print(data)
-#import sys
-#sys.path.insert(1, '/home/ec2-user/CordLte/App/flaskr/projects')
+
 from mainApp import project1_blueprint_factory
 this_send = send
 project1 = project1_blueprint_factory(this_send)
 app.register_blueprint(project1, url_prefix="")
+
 if __name__ == "__main__":
     db.create_all()
     socketio.run(app)
