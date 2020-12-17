@@ -1,8 +1,0 @@
-The tech stack I used was:
-    Front End: HTML, CSS, Javascript 
-    Back End: Python
-    Database: MySQL-Alchemy 
-
-My framework was: Flask
-
-
