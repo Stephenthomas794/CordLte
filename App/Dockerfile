@@ -12,6 +12,6 @@ COPY . /App
 
 RUN pip3 --no-cache-dir install -r requirements.txt
 
-ENV PYTHONPATH /home/ec2-user/CordLte/App/flaskr
+ENV PYTHONPATH /home/ec2-user/CordLte/App/flaskr/projects
 
 CMD ["uwsgi", "app.ini"]
