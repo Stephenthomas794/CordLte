@@ -27,7 +27,7 @@ def homepage():
 
 @app.route("/project1", methods=['POST', 'GET'])
 def project1():
-    lastUpdate = open("static/project1txt/date.txt","r")
+    lastUpdate = open("/home/ec2-user/CordLte/App/mainApp/static/project1txt/date.txt","r")
     sqlMax = text('SELECT * FROM realestate ORDER BY housesDB desc LIMIT 0,10')
     results = db.engine.execute(sqlMax)
     d, a = {}, []
