@@ -150,7 +150,7 @@ def project1_blueprint_factory(send):
     # And turn all the values into strings
     # Returned the new list of all ZipCOdes as a list
     def cleanAndReturnZip():
-        zip = pd.read_csv('static/project1txt/uszips.csv')
+        zip = pd.read_csv('/App/mainApp/static/project1txt/uszips.csv')
         zip.drop('timezone',axis=1,inplace=True)
         zip.drop('military',axis=1,inplace=True)
         zip.drop('imprecise',axis=1,inplace=True)
