@@ -4,7 +4,7 @@ services:
 
     app:
         build: ./App
-        command: gunicorn --bind 0.0.0.0:8080 mainApp.run:app
+        command: gunicorn mainApp.run:app --bind 0.0.0.0:8080
         container_name: app
         restart: always
         environment: 

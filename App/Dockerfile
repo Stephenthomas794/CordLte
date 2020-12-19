@@ -4,6 +4,9 @@ MAINTAINER stephenthomas794@gmail.com
 
 WORKDIR /App
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 COPY . /App
 
 RUN pip3 install --upgrade pip  
