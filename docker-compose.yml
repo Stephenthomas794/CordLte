@@ -4,6 +4,7 @@ services:
 
     app:
         build: ./App
+        command: command: gunicorn --bind http://cordlte.com:8080 run:app
         container_name: app
         restart: always
         environment: 
@@ -15,4 +16,6 @@ services:
         container_name: nginx
         restart: always
         ports:
-            - "80:80"
+            - 8080:80
+        depends_on:
+            - app
