@@ -4,7 +4,7 @@ services:
 
     app:
         build: ./App
-        command: gunicorn --bind cordlte.com:8080 run:app
+        command: gunicorn --bind 0.0.0.0:8080 run:app
         container_name: app
         restart: always
         environment: 
