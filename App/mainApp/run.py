@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'mysecret'
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///realestate.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db = SQLAlchemy(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 class realestate(db.Model):
     id = db.Column(db.Integer, primary_key=True)

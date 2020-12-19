@@ -57,9 +57,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js" integrity="sha512-AcZyhRP/tbAEsXCCGlziPun5iFvcSUpEz2jKkx0blkYKbxU81F+iq8FURwPn1sYFeksJ+sDDrI5XujsqSobWdQ==" crossorigin="anonymous"></script>
 <script>
-$('#test').click(function(){
-
-document.getElementById("stalling").innerHTML = "Your results are being populated below";
 
 console.log(window.location.hostname);
 var socket = io();
@@ -67,6 +64,10 @@ var socket = io();
 socket.on('connect', function() {
     socket.emit('connection', {data: 'Connected'});
     });
+
+$('#test').click(function(){
+
+document.getElementById("stalling").innerHTML = "Your results are being populated below";
 
 socket.on('message', function(msg) {
     $("#messages").append('<tr><th>'+msg.data[0]+'</th><th>'+msg.data[1]+'</th></tr');
