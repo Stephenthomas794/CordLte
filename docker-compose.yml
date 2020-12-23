@@ -6,7 +6,7 @@ services:
         build: 
             context: ./App
             dockerfile: Dockerfile
-        command: gunicorn mainApp.run:app --bind 0.0.0.0:8080
+        command: gunicorn -k gevent mainApp.run:app --bind 0.0.0.0:8080
         container_name: app
         restart: always
         environment: 
