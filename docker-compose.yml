@@ -3,7 +3,10 @@ version: "3.7"
 services:
 
     app:
-        build: ./App
+        build: 
+            context: ./App
+            dockerfile: Dockerfile
+        command: gunicorn -k gevent mainApp.run:app --bind 0.0.0.0:8080
         container_name: app
         restart: always
         environment: 
@@ -15,4 +18,6 @@ services:
         container_name: nginx
         restart: always
         ports:
-            - "80:80"
+            - '80:80'
+        depends_on:
+            - app

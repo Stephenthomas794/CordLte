@@ -4,6 +4,9 @@ MAINTAINER stephenthomas794@gmail.com
 
 WORKDIR /App
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 COPY . /App
 
 RUN pip3 install --upgrade pip  
@@ -14,4 +17,3 @@ COPY ./mainApp/run.py /mainApp/run.py
 COPY ./mainApp/projects/project1.py /mainApp/projects/project1.py
 COPY ./mainApp/static/project1txt /mainApp/static/project1txt
 
-CMD ["uwsgi", "--ini", "app.ini"]
