@@ -21,4 +21,18 @@ Client :smile: -> Elastic Load Balancer :weight_lifting: -> Nginx Reverse Proxy 
 3. The webiste has an SSL Certificate to provide authentication and an encrypted connection 
 
 
+- CordLte is a flask python application that executed web scraping to search the entire US for foreclosed houses based on zip code 
 
+- SQL Alchemy database was created to store all information scrapped
+
+- Focused on quality file structure for the project for scalability in accordance with the flask framework
+
+- Python socketIo and AJAX were used to provide real time updates of the front end from the backend
+
+- Migrated to production with an EC2 instance utilizing git and connected to Route53
+
+- Containerized the application with docker, and put the nginx reverse proxy in front
+
+- Placed the EC2 instance behind an elastic load balancer within an auto scaling group
+
+- Added security with SSL Certificates.
